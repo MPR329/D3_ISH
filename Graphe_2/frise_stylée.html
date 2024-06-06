@@ -112,6 +112,9 @@
     </div>
 
     <script>
+
+        // Disclaimer : Ce fichier a été écrit avec l'aide de chatGPT
+        
         // Function to extract Instagram post ID from a URL
         function extractInstagramPostID(url) {
             const regex = /https:\/\/www\.instagram\.com\/p\/([^/]+)\//;
@@ -121,8 +124,8 @@
 
         document.addEventListener("DOMContentLoaded", function(event) {
             Promise.all([
-                d3.json("combined_data.json"),
-                d3.json("matches_info.json")
+                d3.json("../combined_data.json"),
+                d3.json("../matches_info.json")
             ]).then(function(datasets) {
                 var commentsData = datasets[0];
                 var matchInfoData = datasets[1];
@@ -205,6 +208,8 @@
                         appendMatchInfoRow(tbody, "Adversaire", matchInfo["Adversaire"]);
                         appendMatchInfoRow(tbody, "Score final (ARS-ADV)", matchInfo["Score final (ARS-ADV)"]);
                         appendMatchInfoRow(tbody, "Nom du stade", matchInfo["Nom du stade"]);
+                        appendMatchInfoRow(tbody, "Buteurs", matchInfo["Buteurs"]);
+
                         if (matchInfo["Cartons jaune (ARS)"]) {
                             appendMatchInfoRow(tbody, "Cartons jaune (ARS)", matchInfo["Cartons jaune (ARS)"]);
                         }

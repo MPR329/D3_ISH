@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Commenteurs par Nombre de Commentaires par Post</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bar {
+            fill: steelblue;
+        }
+
+        .bar:hover {
+            fill: orange;
+        }
+
+        .axis text {
+            font-size: 12px;
+        }
+
+        .axis .domain {
+            display: none;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        #chart-title {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+
+        // Disclaimer : Ce fichier a été écrit avec l'aide de chatGPT
+        
+        // Charger les données des commentaires
+        d3.json("../combined_data.json").then(function(commentsData) {
+            // Compter le nombre de commentaires par utilisateur pour chaque post
+            const postComments = {};
+            commentsData.forEach(comment => {
+                const postId = comment.file_identifier;
+                const username = comment.USERNAME;
+                if (!(postId in postComments)) {
+                    postComments[postId] = {};
+                }
+                postComments[postId][username] = (postComments[postId][username] || 0) + 1;
+            });
+
+            // Trouver l'utilisateur avec le plus de commentaires pour chaque post
+            const mostCommentedUsers = {};
+            for (const postId in postComments) {
+                const users = Object.keys(postComments[postId]);
+                const counts = Object.values(postComments[postId]);
+                const maxIndex = counts.indexOf(Math.max(...counts));
+                mostCommentedUsers[postId] = { user: users[maxIndex], count: counts[maxIndex] };
+            }
+
+            // Convertir les données en tableau
+            const posts = Object.keys(mostCommentedUsers);
+            const users = Object.values(mostCommentedUsers);
+
+            // Créer les dimensions du graphique en fonction de la taille de l'écran
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const margin = { top: 50, right: 50, bottom: 80, left: 80 };
+            const width = screenWidth - margin.left - margin.right;
+            const height = screenHeight - margin.top - margin.bottom;
+
+            // Créer l'échelle pour l'axe x
+            const xScale = d3.scaleBand()
+                .domain(posts)
+                .range([0, width])
+                .padding(0.1);
+
+            // Créer l'échelle pour l'axe y
+            const yScale = d3.scaleLinear()
+                .domain([0, d3.max(Object.values(postComments).map(obj => Math.max(...Object.values(obj))))])
+                .range([height, 0]);
+
+            // Créer le SVG
+            const svg = d3.select("body").append("svg")
+                .attr("width", screenWidth)
+                .attr("height", screenHeight)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // Ajouter les barres
+            svg.selectAll(".bar")
+                .data(posts)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", d => xScale(d))
+                .attr("width", xScale.bandwidth())
+                .attr("y", d => yScale(mostCommentedUsers[d].count))
+                .attr("height", d => height - yScale(mostCommentedUsers[d].count))
+                .on("mouseover", handleMouseOver)
+                .on("mouseout", handleMouseOut);
+
+            // Ajouter l'axe x
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(xScale))
+                .selectAll("text")
+                .attr("transform", "rotate(-45)")
+                .style("text-anchor", "end")
+                .attr("dx", "-10px")
+                .attr("dy", "-5px");
+
+            // Ajouter l'axe y
+            svg.append("g")
+                .call(d3.axisLeft(yScale));
+
+            // Ajouter le titre de l'axe y
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("x", -height / 2)
+                .attr("y", -margin.left)
+                .attr("dy", "1em")
+                .attr("text-anchor", "middle")
+                .text("Nombre de Commentaires");
+
+            // Ajouter le titre du graphique
+            svg.append("text")
+                .attr("id", "chart-title")
+                .attr("x", width / 2)
+                .attr("y", -margin.top / 2)
+                .text("Top Commenteurs par Nombre de Commentaires par Post")
+                .style("font-size", "24px")
+                .style("font-weight", "bold")
+            .style("font-family", "Arial")
+            .attr("text-anchor", "middle");
+
+        // Fonction pour gérer le survol de la souris
+        function handleMouseOver(event, d) {
+            const user = mostCommentedUsers[d].user;
+            const count = mostCommentedUsers[d].count;
+            d3.select(this).style("fill", "orange");
+            tooltip.style("opacity", 1)
+                .html("Utilisateur : " + user + "<br/>Nombre de Commentaires : " + count)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 15) + "px");
+        }
+
+        function handleMouseOut(event, d) {
+            d3.select(this).style("fill", "steelblue");
+            tooltip.style("opacity", 0);
+        }
+
+        // Ajouter une info-bulle (tooltip)
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+    });
+</script>
+</body>
+</html>
