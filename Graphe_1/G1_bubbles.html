@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Graph with D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .tooltip {
+            position: absolute;
+            text-align: left; /* Align text to the left */
+            width: auto;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <svg id="chart"></svg>
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Set up the chart dimensions
+        const width = 1680; // 14 inches at 120 DPI
+        const height = 1050; // 14 inches at 120 DPI
+        const padding = 50;
+
+        d3.json("../combined_data.json").then(function(data){
+            // Sort the data by population in descending order and get the top 20 countries
+            data.forEach(function(d) {
+                d.LIKES = parseInt(String(d.LIKES).trim().replace(/\D/g,''));
+            });
+            const sortedData = data.sort((a, b) => b.LIKES - a.LIKES).slice(0,5000);
+            console.log(sortedData);
+
+            // Extract unique file_identifiers
+            const fileIdentifiers = [...new Set(sortedData.map(d => d.file_identifier))];
+
+            // Create the color scale for file_identifiers
+            const colorScale = d3.scaleOrdinal()
+                .domain(fileIdentifiers)
+                .range(d3.schemeCategory10);
+
+            // Create the pack layout
+            const pack = d3.pack()
+                .size([width - padding, height - padding])
+                .padding(5);
+
+            // Create the hierarchy from the data
+            const hierarchy = d3.hierarchy({children: sortedData})
+                .sum(d => d.LIKES);
+
+            // Compute the pack layout
+            const root = pack(hierarchy);
+
+            // Create the SVG element
+            const svg = d3.select("#chart")
+                .attr("width", width)
+                .attr("height", height);
+
+            // Create the bubbles
+            const bubbles = svg.selectAll(".bubble")
+                .data(root.descendants().slice(1))
+                .enter()
+                .append("g")
+                .attr("class", "bubble")
+                .attr("transform", d => `translate(${d.x + padding}, ${d.y + padding})`);
+
+            // Add the circles to the bubbles
+            bubbles.append("circle")
+                .attr("r", d => d.r)
+                .attr("fill", d => colorScale(d.data.file_identifier));
+
+            // Add the country name and population text to the bubbles
+            bubbles.append("text")
+                .attr("dy", "-0.4em")
+                .style("text-anchor", "middle")
+                .append("tspan")
+                .attr("class", "COMMENT")
+                .style("visibility", "hidden")
+                .text(d => d.data.COMMENTS)
+                .append("tspan")
+                .attr("class", "LIKES")
+                .attr("x", 0)
+                .attr("dy", "1.2em")
+                .text(d => d.data.LIKES.toLocaleString())
+                .append("tspan")
+                .attr("class", "LIKES")
+                .attr("x", 0)
+                .attr("dy", "1.2em")
+                .text(d => d.data.USERNAME.toLocaleString());
+
+            // Set the text color to black
+            d3.selectAll("text").style("fill", "black");
+
+            // Create tooltip element
+            const tooltip = d3.select("#tooltip");
+
+            // Add event listeners to show/hide tooltip on mouseover/mouseout
+            bubbles.on("mouseover", function(event, d) {
+                tooltip.style("visibility", "visible")
+                    .html(`<b>Username:</b> ${d.data.USERNAME}<br><b>Likes</b>: ${d.data.LIKES.toLocaleString()}<br><b>Comments:</b> ${d.data.COMMENTS}<br><b>Post:</b> ${d.data.file_identifier}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mousemove", function(event) {
+                tooltip.style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                tooltip.style("visibility", "hidden");
+            });
+        });
+    </script>
+</body>
+</html>
