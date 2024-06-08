@@ -1,4 +1,4 @@
-# Une visualisation des commentaires sur les posts Instagram d'Arsenal FC durant la saison 2021-2022
+# Une visualisation des commentaires sur les posts Instagram d'Arsenal F.C durant la saison 2021-2022
 
 I. Auteur
 ------
@@ -6,14 +6,22 @@ Matthieu Perring
 
 II. Description du projet
 ------
-Ce projet crée une expérience de réalité virtuelle immersive pour explorer auditivement une sélection d'objet que j'ai trouvé chez moi et qui sont importants pour moi par ce qu'ils représentent (sauf un je vous laisse deviner lequel. J'avais déjà le modèle 3d scanné donc je l'ai utilisé).
+Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022.
 
-L'utilisateur peut se déplacer (souris pour l'orientation et flèches pour se déplacer) pour aller voir les objets suivants :
-* **_Jungle de l'armée_** : j'ai fait l'armée récemment et cela a laissé des souvenirs assez forts (positifs et négatifs). L'audio permet de revenir sur cette période très drôle.
-* **_HARIBO_** : ...
-* **_T-shirt de sport de la FSG Morges_** : Je pratique de l'athlétisme et fait sporadiquement des compétitions.
-* **_Canne à pêche_** : J'aime aller pêcher. L'audio représente le calme de l'environnement lorsque je pêche. Les bruits que l'on y entend sont les bruits de la cuillère que fait bouger le poisson quand je l'enlève de l'hameçon. C'était la deuxième truite que je p^chais dans la Venoge.
-* **_Manette xbox_** : C'est maintenant moins le cas mais j'ai passé énormément de temps à jouer au jeu fifa (FIFA14 à FIFA24)
+Les informations récoltées pour chaque post étaient les suivantes : 
+
+{
+"USERNAME": "joelbeya1",                  // Le nom d'utilisateur de la personne qui a commenté
+"ID":"0",                                  // Juste un id unique généré par le bot pour chaque commentaire du post
+"DATE": "2022-02-19",                      // La date du commentaire
+"TIME": "17:16:48",                         // L'heure du commentaire
+"LIKES": "936 ",                            // Le nombre de likes sur ce commentaire
+"REPLIES": "4",                            // Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
+"COMMENTS": "Hale End Academy baby!!!",   // Le commentaire
+"TAGS": 0,                                // Le nombre de tags (p.ex @arsenalFC)
+"HASHTAGS": 0,                          // Le nombre de tags (p.ex #ARSENAL)
+"ACCOUNT_STATUS": true                 // Le statut du compte (vérifié ou non)
+}
 
 III. Informations sur le code
 ------
