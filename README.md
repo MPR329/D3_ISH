@@ -1,4 +1,4 @@
-# ${\color{lightblue}Visualisations \space des \space données \space du \space compte \space Instagram \space durant \space la \space saison \space 2021-2022 \space de \space Premier \space League}$
+# Une visualisation des commentaires sur les posts Instagram d'Arsenal FC durant la saison 2021-2022
 
 I. Auteur
 ------
