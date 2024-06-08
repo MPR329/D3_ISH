@@ -10,16 +10,16 @@ Ce projet créé 3 visualisations à partir des données issues du scraping des 
 
 Les informations récoltées pour chaque post étaient les suivantes : 
 _Par exemple_
-* **"USERNAME":**                           // Le nom d'utilisateur de la personne qui a commenté
-* **"ID":**                                 // Juste un id unique généré par le bot pour chaque commentaire du post
-* **"DATE":**                               // La date du commentaire
-* **"TIME":**                               // L'heure du commentaire
-* **"LIKES":**                              // Le nombre de likes sur ce commentaire
-* **"REPLIES":**                            // Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
-* **"COMMENTS":**                           // Le commentaire
-* **"TAGS":**                               // Le nombre de tags (p.ex @arsenalFC)
-* **"HASHTAGS":**                           // Le nombre de tags (p.ex #ARSENAL)
-* **"ACCOUNT_STATUS":**                     // Le statut du compte (vérifié ou non)
+* **"USERNAME":**                           Le nom d'utilisateur de la personne qui a commenté
+* **"ID":**                                 Juste un id unique généré par le bot pour chaque commentaire du post
+* **"DATE":**                               La date du commentaire
+* **"TIME":**                               L'heure du commentaire
+* **"LIKES":**                              Le nombre de likes sur ce commentaire
+* **"REPLIES":**                            Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
+* **"COMMENTS":**                           Le commentaire
+* **"TAGS":**                               Le nombre de tags (p.ex @arsenalFC)
+* **"HASHTAGS":**                           Le nombre de tags (p.ex #ARSENAL)
+* **"ACCOUNT_STATUS":**                     Le statut du compte (vérifié ou non)
 
 III. Informations sur le code
 ------
