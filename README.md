@@ -6,40 +6,22 @@ Matthieu Perring
 
 II. Description du projet
 ------
-Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022. Le scraping a été fait avec un bot que j'ai programmé pour un cours durant le Bachelor en ISH. Le code pour celui-ci est disponible au repo suivant :[ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
+Ce projet propose 3 visualisations pour les commentaires laissés sous les posts instagram d'Arsenal F.C après chaque match de la saison 2021-2022 de la Premier League. [ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
 
-Les informations récoltées pour chaque post étaient les suivantes : 
-
-* **"USERNAME":**                           Le nom d'utilisateur de la personne qui a commenté
-* **"ID":**                                 Juste un id unique généré par le bot pour chaque commentaire du post
-* **"DATE":**                               La date du commentaire
-* **"TIME":**                               L'heure du commentaire
-* **"LIKES":**                              Le nombre de likes sur ce commentaire
-* **"REPLIES":**                            Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
-* **"COMMENTS":**                           Le commentaire
-* **"TAGS":**                               Le nombre de tags (p.ex @arsenalFC)
-* **"HASHTAGS":**                           Le nombre de tags (p.ex #ARSENAL)
-* **"ACCOUNT_STATUS":**                     Le statut du compte (vérifié ou non)
+III. Dataset
+------
 
 III. Informations sur le code
 ------
-
+Le code utilise la librairie javascript D3. Il a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier _echanges_chat_gpt.pdf_ avec ceux-ci classés par visualisation.
 
 IV. Contenu du projet 
 ------
 
 
-V. GIF de l'expérience 
+V. GIFs de l'expérience 
 ------
 
-
-VI. Installation et lancement de l'expérience
-------
-
-
-VII. Assets
-------
-Les assets sont donc dans le dossier _audios_ et dans le dossier _models_
 
 VIII. Sources
 ------
