@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuages de mots Instagram</title>
+    <!-- Inclusion de la bibliothèque D3.js pour les visualisations de données -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
+        /* Styles pour le corps de la page */
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -15,72 +17,67 @@
             flex-direction: column;
             align-items: center;
         }
+        /* Styles pour le conteneur de la timeline */
         .timeline-container {
             width: 100%;
             overflow-x: auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 50px 0;
+            margin: 50px 50px;
         }
+        /* Styles pour la timeline elle-même */
         .timeline {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
+        /* Styles pour chaque date dans la timeline */
         .timeline-date {
             position: relative;
             text-align: center;
             cursor: pointer;
-            padding: 10px;
-            margin: 0 5px;
-            border-radius: 50%;
+            padding: 8px;
+            margin: 2px 2px;
             background-color: #007bff;
             color: white;
             font-weight: bold;
             transition: background-color 0.3s ease;
-            font-size: 0.8em;
+            font-size: 0.7em;
         }
+        /* Changement de couleur au survol des dates */
         .timeline-date:hover {
             background-color: #0056b3;
         }
-        .timeline-date::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #007bff;
-            top: 50%;
-            left: -50%;
-            z-index: -1;
-        }
-        .timeline-date:first-child::after {
-            display: none;
-        }
+       
+        /* Styles pour le conteneur du nuage de mots */
         .word-cloud-container {
             display: none;
             position: absolute;
-            top: 50%;
+            top: 57%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
             z-index: 10;
         }
+        /* Styles pour le titre du nuage de mots */
         .word-cloud-title {
             text-align: center;
             font-size: 1.2em;
             font-weight: bold;
             margin-bottom: 10px;
         }
+        /* Dimensions du contenu du nuage de mots */
         .word-cloud-content {
             width: 600px;
             height: 400px;
             margin-top: 20px;
         }
+        /* Styles pour les informations du match */
         .match-info {
             margin-top: 20px;
             text-align: left;
@@ -102,9 +99,11 @@
     </style>
 </head>
 <body>
+    <!-- Conteneur de la timeline -->
     <div class="timeline-container">
         <div class="timeline" id="timeline"></div>
     </div>
+    <!-- Conteneur pour afficher les nuages de mots et les informations du match -->
     <div id="word-cloud-display" class="word-cloud-container">
         <div class="word-cloud-title" id="word-cloud-title"></div>
         <div id="match-info" class="match-info"></div>
@@ -121,22 +120,24 @@
         // [C] Le 20% restant du travail est la correction des erreures qui subsistent, des petits ajouts pour changer légèrement la logique du script
         //     et finalement relecture du code pour éventuellement ajouter des commentaires si cela était nécessaire.
 
-        // Function to extract Instagram post ID from a URL
+        // Fonction pour extraire l'ID du post Instagram à partir de l'URL
         function extractInstagramPostID(url) {
             const regex = /https:\/\/www\.instagram\.com\/p\/([^/]+)\//;
             const match = url.match(regex);
             return match ? match[1] : null;
         }
 
+        // Exécution du script lorsque le contenu de la page est chargé
         document.addEventListener("DOMContentLoaded", function(event) {
+            // Chargement des fichiers JSON contenant les données des commentaires et des matchs
             Promise.all([
                 d3.json("../combined_data.json"),
                 d3.json("../matches_info.json")
             ]).then(function(datasets) {
-                var commentsData = datasets[0];
-                var matchInfoData = datasets[1];
-                var posts = {};
-                var matchInfoMap = {};
+                var commentsData = datasets[0]; // Données des commentaires
+                var matchInfoData = datasets[1]; // Données des informations de match
+                var posts = {}; // Objet pour stocker les données des posts
+                var matchInfoMap = {}; // Objet pour mapper les informations de match par ID de post
 
                 // Indexer les informations de match par ID de post
                 matchInfoData.forEach(function(match) {
@@ -147,7 +148,7 @@
                         var matchDateStr = match[test].replace(/\\/g, '');
                         let dateParts = matchDateStr.split('/');
                         let day = parseInt(dateParts[0], 10);
-                        let month = parseInt(dateParts[1], 10) - 1; // Months are 0-based in JavaScript Date
+                        let month = parseInt(dateParts[1], 10) - 1; // Les mois commencent à 0 en JavaScript
                         let year = parseInt(dateParts[2], 10);
                         var matchDate = new Date(year, month, day);
                         console.log(matchDate)
@@ -165,10 +166,15 @@
 
                 var timeline = d3.select("#timeline");
 
+                // Gradient de couleur pour les dates de la timeline
+                var gradient = d3.scaleLinear()
+                    .domain([0, Object.keys(posts).length - 1])
+                    .range(["#ad9393", "#ba0404"]);
+
                 // Afficher les dates sur la timeline
                 Object.keys(posts).sort(function(a, b) {
                     return posts[a].date - posts[b].date;
-                }).forEach(function(postId) {
+                }).forEach(function(postId, index) {
                     var date = posts[postId].date;
                     var formattedDate = ("0" + date.getDate()).slice(-2) + "/" +
                                         ("0" + (date.getMonth() + 1)).slice(-2) + "/" +
@@ -176,6 +182,7 @@
                     timeline.append("div")
                         .attr("class", "timeline-date")
                         .text(formattedDate)
+                        .style("background-color", gradient(index))
                         .on("mouseover", function() {
                             showWordCloud(postId);
                         })
@@ -184,38 +191,45 @@
                         });
                 });
 
+                // Fonction pour afficher le nuage de mots et les informations du match
                 function showWordCloud(postId) {
                     var display = d3.select("#word-cloud-display");
                     display.style("display", "block");
 
                     var wordCloudContainer = d3.select("#word-cloud-content");
-                    wordCloudContainer.html(""); // Clear previous content
+                    wordCloudContainer.html(""); // Effacer le contenu précédent
 
                     var wordCloudTitle = d3.select("#word-cloud-title");
                     
                     if (posts[postId].comments.length === 0) {
                         wordCloudTitle.text("COMMENTS NOT SCRAPED FOR THIS POST, SORRY");
                     } else {
-                        wordCloudTitle.text("Nuage de mots pour le post ID: " + postId); // Set title
+                        wordCloudTitle.text("Nuage de mots pour le post ID: " + postId); // Définir le titre
                         createWordCloud(posts[postId].comments, postId, wordCloudContainer);
                     }
 
                     var matchInfo = posts[postId].matchInfo;
                     var matchInfoContainer = d3.select("#match-info");
-                    matchInfoContainer.html(""); // Clear previous content
+                    matchInfoContainer.html(""); // Effacer le contenu précédent
 
                     if (matchInfo && Object.keys(matchInfo).length > 0) {
                         var table = matchInfoContainer.append("table");
                         var tbody = table.append("tbody");
 
                         appendMatchInfoRow(tbody, "POST INSTAGRAM", matchInfo["Lien Instagram du post pour ce match"]);
+                        appendMatchInfoRow(tbody, "HEURE DU MATCH / HEURE DE PUBLICATION", matchInfo["Heure du match (CET)"] + " / " + matchInfo["Heure de publication"]);
+                        appendMatchInfoRow(tbody, "COMMENTAIRES", matchInfo["Comments"]);
+                        appendMatchInfoRow(tbody, "LIKES DU POST", matchInfo["Likes"]);
                         appendMatchInfoRow(tbody, "Date du match", matchInfo["Date du match"]);
                         appendMatchInfoRow(tbody, "Classement avant le match", matchInfo["Postion dans le classement"]);
                         appendMatchInfoRow(tbody, "Adversaire", matchInfo["Adversaire"]);
                         appendMatchInfoRow(tbody, "Score final (ARS-ADV)", matchInfo["Score final (ARS-ADV)"]);
                         appendMatchInfoRow(tbody, "Nom du stade", matchInfo["Nom du stade"]);
-                        appendMatchInfoRow(tbody, "Buteurs", matchInfo["Buteurs"]);
-
+                        
+                        if (matchInfo["Buteurs"]) {
+                            appendMatchInfoRow(tbody, "Buteurs", matchInfo["Buteurs"]);
+                        }
+                       
                         if (matchInfo["Cartons jaune (ARS)"]) {
                             appendMatchInfoRow(tbody, "Cartons jaune (ARS)", matchInfo["Cartons jaune (ARS)"]);
                         }
@@ -227,16 +241,19 @@
                     }
                 }
 
+                // Fonction pour ajouter une ligne dans le tableau des informations de match
                 function appendMatchInfoRow(tbody, key, value) {
                     var row = tbody.append("tr");
                     row.append("th").text(key);
                     row.append("td").text(value);
                 }
 
+                // Fonction pour masquer le nuage de mots
                 function hideWordCloud() {
                     d3.select("#word-cloud-display").style("display", "none");
                 }
 
+                // Fonction pour extraire les mots des commentaires
                 function extractWords(comment) {
                     if (comment && comment.COMMENTS) {
                         return comment.COMMENTS.replace(/[^\w\s]|_/g, "").split(/\s+/).filter(function(word) {
@@ -246,6 +263,7 @@
                     return [];
                 }
 
+                // Fonction pour créer le nuage de mots
                 function createWordCloud(data, postId, container) {
                     var wordFrequency = {};
 
