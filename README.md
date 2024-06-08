@@ -36,7 +36,9 @@ J'ai aussi utilisé un fichier _.csv_, que j'avais également fait dans le cadre
 
 IV. Contenu du projet 
 ------
+Le projet comporte 3 visualisations : 
 
+**BUBBLE CHART** : _BUBBLE_CHART_top_words_during_season.html_
 
 V. GIFs de l'expérience 
 ------
