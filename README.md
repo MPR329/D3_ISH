@@ -6,7 +6,7 @@ Matthieu Perring
 
 II. Description du projet
 ------
-Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022. Le scraping a été fait avec un bot que j'ai programmé pour un cours durant le Bachelor en ISH. Son code est disponible au repo suivant : [https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js]([url](https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js))
+Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022. Le scraping a été fait avec un bot que j'ai programmé pour un cours durant le Bachelor en ISH. Son code est disponible au repo suivant :[ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
 
 Les informations récoltées pour chaque post étaient les suivantes : 
 
