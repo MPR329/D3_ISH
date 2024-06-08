@@ -38,10 +38,15 @@ IV. Contenu du projet
 ------
 Le projet comporte 3 visualisations : 
 
-##### ${\color{lightgreen}BUBBLE \space CHART \space :}$ _BUBBLE_CHART_top_words_during_season.html_
-Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur.Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram duquel il est issu. 
+##### ${\color{lightgreen}[GRAPHE 1] \space - \space BUBBLE \space CHART \space :}$ _BUBBLE_CHART_top_words_during_season.html_
+Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram. 
 
-On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi qu'il y a relativement peu de commentaires qui ont plus de 10 likes. 
+On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.
+
+##### ${\color{lightgreen}BUBBLE \space CHART \space :}$ _BUBBLE_CHART_top_words_during_season.html_
+Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram. 
+
+On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.
 
 V. GIFs de l'expérience 
 ------
