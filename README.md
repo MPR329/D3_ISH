@@ -9,7 +9,7 @@ II. Description du projet
 Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022.
 
 Les informations récoltées pour chaque post étaient les suivantes : 
-
+`
 {
 "USERNAME": "joelbeya1",                  // Le nom d'utilisateur de la personne qui a commenté
 "ID":"0",                                  // Juste un id unique généré par le bot pour chaque commentaire du post
@@ -22,7 +22,7 @@ Les informations récoltées pour chaque post étaient les suivantes :
 "HASHTAGS": 0,                          // Le nombre de tags (p.ex #ARSENAL)
 "ACCOUNT_STATUS": true                 // Le statut du compte (vérifié ou non)
 }
-
+`
 III. Informations sur le code
 ------
 Le projet est structuré de la manière suivante : 
