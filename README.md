@@ -14,10 +14,10 @@ Le code utilise la librairie javascript D3. Il a été en partie généré par c
 
 III. Dataset
 ------
-Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de _Traitement informatique des corpus textuels II_ dispensé par Aris Xanthosante (SLI, Lettres, UNIL). 
+Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de _Traitement informatique des corpus textuels II_ dispensé par Aris Xanthos (SLI, Lettres, UNIL). 
 Vous trouverez le repo du projet au lien suivant : [Instagram_Comment_Scraping_Bot](https://github.com/MPR329/Instagram_Comment_Scraping_Bot). 
 
-Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et donner diverses informations à ce sujet. J'ai scrapé les commentaires sous tous ce type de posts fait durant la saison 2021-2022 de Premier League. Quelques posts n'avaient pas été scrapé mais sinon quasiment tous les commentaires des autres posts avaient été scrapés. Les
+Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et donner diverses informations à ce sujet. J'ai scrapé les commentaires sous tous ce type de posts fait durant la saison 2021-2022 de Premier League. Quelques posts n'avaient pas été scrapé mais sinon quasiment tous les commentaires des autres posts avaient été scrapés. Les données suivantes ont été scrapé pour tous les commentaires : 
 
 IV. Contenu du projet 
 ------
