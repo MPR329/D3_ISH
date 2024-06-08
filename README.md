@@ -32,7 +32,7 @@ Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et
 
 Afin de faciliter le travail lors de ce projet j'ai fusionné les fichiers _.json_ des commentaires que j'avais pour chaque post scrapé et j'ai ajouté à chaque commentaire l'ID du post duquel il avait été scrapé.
 
-J'ai aussi utilisé un fichier _.csv_, que j'avais également fait dans le cadre de ce même cours, qui recense différentes informations pour chaque match joué par Arsenal durant la saison (score, nom des buteurs, lien du post instagram, nombre de commentaires, etc.
+J'ai aussi utilisé un fichier _.csv_, que j'avais également fait dans le cadre de ce même cours, qui recense différentes informations pour chaque match joué par Arsenal durant la saison (score, nom des buteurs, lien du post instagram, nombre de commentaires, etc).
 
 IV. Contenu du projet 
 ------
