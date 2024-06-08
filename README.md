@@ -21,7 +21,7 @@ Les informations récoltées pour chaque post étaient les suivantes :
 * **"HASHTAGS":**                           Le nombre de tags (p.ex #ARSENAL)
 * **"ACCOUNT_STATUS":**                     Le statut du compte (vérifié ou non)
 
-III. Informations sur le code
+III. ${\color{lightgreen}Informations \space sur \space le \space code}$
 ------
 Le projet est structuré de la manière suivante : 
 * Un dossier _audios_ qui contient tous les fichier .mp3 utilisés
