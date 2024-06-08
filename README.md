@@ -38,7 +38,7 @@ IV. Contenu du projet
 ------
 Le projet comporte 3 visualisations : 
 
-**BUBBLE CHART** : _BUBBLE_CHART_top_words_during_season.html_
+#### ${\color{lightgreen}BUBBLE \space CHART \space : \space BUBBLE_CHART_top_words_during_season.html}$
 
 V. GIFs de l'expérience 
 ------
