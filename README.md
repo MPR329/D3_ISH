@@ -18,7 +18,21 @@ Les données utilisées provienne d'un projet précédent réalisé dans le cadr
 Vous trouverez le repo du projet au lien suivant : [Instagram_Comment_Scraping_Bot](https://github.com/MPR329/Instagram_Comment_Scraping_Bot). 
 
 Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et donner diverses informations à ce sujet. J'ai scrapé les commentaires sous tous ce type de posts fait durant la saison 2021-2022 de Premier League. Quelques posts n'avaient pas été scrapé mais sinon quasiment tous les commentaires des autres posts avaient été scrapés. Les données suivantes ont été scrapé pour tous les commentaires : 
-*
+
+* **"USERNAME":**                           Le nom d'utilisateur de la personne qui a commenté
+* **"ID":**                                 Juste un id unique généré par le bot pour chaque commentaire du post
+* **"DATE":**                               La date du commentaire
+* **"TIME":**                               L'heure du commentaire
+* **"LIKES":**                              Le nombre de likes sur ce commentaire
+* **"REPLIES":**                            Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
+* **"COMMENTS":**                           Le commentaire
+* **"TAGS":**                               Le nombre de tags (p.ex @arsenalFC)
+* **"HASHTAGS":**                           Le nombre de tags (p.ex #ARSENAL)
+* **"ACCOUNT_STATUS":**                     Le statut du compte (vérifié ou non)
+
+Afin de faciliter le travail lors de ce projet j'ai fusionné les fichiers _.json_ des commentaires que j'avais pour chaque post scrapé et j'ai ajouté à chaque commentaire l'ID du post duquel il avait été scrapé.
+
+J'ai aussi utilisé un fichier _.csv_, que j'avais également fait dans le cadre de ce même cours, qui recense différentes informations pour chaque match joué par Arsenal durant la saison (score, nom des buteurs, lien du post instagram, nombre de commentaires, etc.
 
 IV. Contenu du projet 
 ------
