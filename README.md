@@ -10,7 +10,7 @@ Ce projet propose 3 visualisations pour les **136058** commentaires Instagram la
 
 III. Informations sur le code
 ------
-Le code utilise la librairie javascript D3. Il a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier _echanges_chat_gpt.pdf_ avec ceux-ci classés par visualisation.
+Le code utilise la librairie javascript D3. Il a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier `echanges_chat_gpt.pdf` avec ceux-ci classés par visualisation.
 
 III. Dataset
 ------
@@ -38,16 +38,16 @@ IV. Contenu du projet
 ------
 Le projet comporte 3 visualisations : 
 
-##### ${\color{lightgreen}[GRAPHE \space 1] \space :}$ _BUBBLE_CHART_top_words_during_season.html_
+##### ${\color{lightgreen}[GRAPHE \space 1] \space :}$ `BUBBLE_CHART_top_words_during_season.html`
 * Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram. 
 
 * On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.
 
-##### ${\color{lightgreen}[GRAPHE \space 2] \space :}$ _WORD_CLOUD_top_100_words_per_posts_interactive.html_
+##### ${\color{lightgreen}[GRAPHE \space 2] \space :}$ `WORD_CLOUD_top_100_words_per_posts_interactive.html`
 * Ce fichier html permet de voir une visualisation des 100 mots les plus fréquents pour tous les posts durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match.
 * Il est assez aisé de voir que si le résultat du match est négatif les mots sont plus négatifs. La performance des joueurs affecte également la fréquence d'apparition de leur nom. Une performance particulièrement bonne ou mauvaise augmente cette fréquence.
 
-##### ${\color{lightgreen}[GRAPHE \space 3] \space :}$ _BARPLOT_top_commentors.html_
+##### ${\color{lightgreen}[GRAPHE \space 3] \space :}$ `BARPLOT_top_commentors.html`
 * Ce simple barplot permet de voir quel utilisateur a commenté le plus de fois sur chaque commentaires. Lorsque la souris survole une bar, un tooltip affiche le nom de l'utilisateur ainsi que le nombre de commentaire sur le post concerné.
 * Un examen rapide du fichier json permet de voir que les commentaires des ces utilisateurs sont différents mais que chacun répéte souvent la même série de commentaires. Cela fait penser que ces utilisateurs sont des bots. En regardant ensuite le profil de ses utilisateurs on constate qu'il apparaissent comme des utilisateur "normaux".
 * Il serait intéressant de creuser plus cette piste et faire des visualisation spécifiquement sur les données de commentaires de ces utilisateurs. Notamment comment leur temps de latence pour poster un commentaire, après que le post soit mis en ligne par le club, comparé
