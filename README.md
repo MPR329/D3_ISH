@@ -6,14 +6,15 @@ Matthieu Perring
 
 II. Description du projet
 ------
-Ce projet propose 3 visualisations pour les commentaires laissés sous les posts instagram d'Arsenal F.C après chaque match de la saison 2021-2022 de la Premier League. [ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
-
-III. Dataset
-------
+Ce projet propose 3 visualisations pour les commentaires laissés sous les posts instagram d'Arsenal F.C après chaque match de la saison 2021-2022 de la Premier League. 
 
 III. Informations sur le code
 ------
 Le code utilise la librairie javascript D3. Il a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier _echanges_chat_gpt.pdf_ avec ceux-ci classés par visualisation.
+
+III. Dataset
+------
+Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de _Traitement informatique des corpus textuels II_ dispensé par Aris Xanthosante (SLI, Lettres, UNIL). Vous trouverez le repo du projet au lien suivant : [ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
 
 IV. Contenu du projet 
 ------
