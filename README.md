@@ -49,7 +49,7 @@ Le projet comporte 3 visualisations :
 
 ##### ${\color{lightgreen}[GRAPHE \space 3] \space :}$ `BARPLOT_top_commentors.html`
 * Ce simple barplot permet de voir quel utilisateur a commenté le plus de fois sur chaque commentaires. Lorsque la souris survole une bar, un tooltip affiche le nom de l'utilisateur ainsi que le nombre de commentaire sur le post concerné.
-* Un examen rapide du fichier json permet de voir que les commentaires des ces utilisateurs sont différents mais que chacun répéte souvent la même série de commentaires. Cela fait penser que ces utilisateurs sont des bots. En regardant ensuite le profil de ses utilisateurs on constate qu'il apparaissent comme des utilisateur "normaux".
+* Un examen rapide du fichier json permet de voir que les commentaires des ces utilisateurs sont différents mais que chacun répète souvent la même série de commentaires. Cela fait penser que ces utilisateurs sont des bots. En regardant ensuite le profil de ses utilisateurs on constate qu'il apparaissent comme des utilisateur "normaux".
 * Il serait intéressant de creuser plus cette piste et faire des visualisation spécifiquement sur les données de commentaires de ces utilisateurs. Notamment comment leur temps de latence pour poster un commentaire, après que le post soit mis en ligne par le club, comparé
  aux autres utilisateurs. Cette visualisation, malgré sa simplicité, est celle qui, je trouve, a permis de mettre en évidence l'information la plus intéressante.
 
