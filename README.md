@@ -39,14 +39,13 @@ IV. Contenu du projet
 Le projet comporte 3 visualisations : 
 
 ##### ${\color{lightgreen}[GRAPHE \space 1] \space :}$ _BUBBLE_CHART_top_words_during_season.html_
-Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram. 
+* Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram. 
 
-On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.
+* On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.
 
 ##### ${\color{lightgreen}[GRAPHE \space 2] \space :}$ _WORD_CLOUD_top_100_words_per_posts_interactive.html_
-Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram. 
-
-On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.
+* Ce fichier html permet de voir une visualisation des 100 mots les plus fréquents pour tous les posts durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match.
+* Il est assez aisé de voir que si le résultat du match est négatif les mots sont plus négatifs. La performance des joueurs affecte également la fréquence d'apparition de leur nom. Une performance particulièrement bonne ou mauvaise augmente cette fréquence.
 
 V. GIFs de l'expérience 
 ------
