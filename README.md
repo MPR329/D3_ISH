@@ -10,7 +10,7 @@ Ce projet propose 3 visualisations pour les **136058** commentaires Instagram la
 
 III. Informations sur le code
 ------
-Le code utilise la librairie javascript D3. Il a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier `echanges_chat_gpt.pdf` avec ceux-ci classés par visualisation.
+Le code utilise la librairie javascript D3. La librairoe est accédée via la ligne de code ` <script src="https://d3js.org/d3.v7.min.js"></script>`. Le code a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier `echanges_chat_gpt.pdf` avec ceux-ci classés par visualisation.
 
 III. Dataset
 ------
