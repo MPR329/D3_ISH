@@ -1,4 +1,4 @@
-# Une visualisation des commentaires sur les posts Instagram d'Arsenal F.C durant la saison 2021-2022
+# VISUALIZATION OF ARSENAL F.C'S MATCH DAY INSTAGRAM POSTS FOR THE 2021-22 SEASON
 
 I. Auteur
 ------
@@ -6,7 +6,7 @@ Matthieu Perring
 
 II. Description du projet
 ------
-Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022. Le scraping a été fait avec un bot que j'ai programmé pour un cours durant le Bachelor en ISH. Son code est disponible au repo suivant :[ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
+Ce projet créé 3 visualisations à partir des données issues du scraping des commentaires sur les posts Instagram que le compte d'Arsenal F.C a posté après chaque match de sa saison 2021-2022. Le scraping a été fait avec un bot que j'ai programmé pour un cours durant le Bachelor en ISH. Le code pour celui-ci est disponible au repo suivant :[ https://github.com/MPR329/InstagramCommentBot/blob/main/Bot/index.js](url)
 
 Les informations récoltées pour chaque post étaient les suivantes : 
 
@@ -21,37 +21,21 @@ Les informations récoltées pour chaque post étaient les suivantes :
 * **"HASHTAGS":**                           Le nombre de tags (p.ex #ARSENAL)
 * **"ACCOUNT_STATUS":**                     Le statut du compte (vérifié ou non)
 
-III. ${\color{lightgreen}Informations \space sur \space le \space code}$
+III. Informations sur le code
 ------
-Le projet est structuré de la manière suivante : 
-* Un dossier _audios_ qui contient tous les fichier .mp3 utilisés
-* Un dossier _models_ qui contient tous les modèles 3d .glb utilisés
-* Un fichier html.html_ utilisant a-frame
-* Ce fichier _readme.md_ qui explique le projet
 
-Il y a parfois un souci avec les fichiers audios. Ceux-ci ne se jouent pas tout le temps automatiquement. L'audioContext se suspend parfois et les empêche de se lancer tout seul. Il faut parfois charger plusieurs fois la page pour que les audios fonctionnent. J'ai tenté de résoudre ce problème mais sans succès...
 
 IV. Contenu du projet 
 ------
-#### ${\color{lightgreen}COULOIR}$
-L'expérience auditive se passe à l'intérieur d'un long couloir noir fixe
-#### ${\color{lightgreen}PRESENTOIRS}$
-Chaque objet est exposé en suspension au-dessus d'un cylindre. Le modèle 3d de l'objet "flotte" avec une animation de rotation et un déplacement sur l'axe des y.
-#### ${\color{lightgreen}LUMIERES}$
-Les présentoirs et les objets sont éclairés par plusieurs spots de lumières. Une de en haut, une de en-bas et deux de côté.
-#### ${\color{lightgreen}CIEL}$ 
-Pour ajouter un peu de couleur, le ciel est bleu
-#### ${\color{lightgreen}ELEMENTS \space INTERACTIFS/AUDIO}$
-Chaque objet a un fichier audio qui joue et que l'utilisateur entend une fois qu'il s'en approche assez.
+
 
 V. GIF de l'expérience 
 ------
-![projet_aframe_gif_readme](https://github.com/MPR329/ISH_PROJET_AFRAME/assets/62051312/3827980a-62e4-4b90-b268-8045a3f1991e)
+
 
 VI. Installation et lancement de l'expérience
 ------
-Aucune installation particulière n'est nécessaire pour explorer la scène VR.
-L'appel au framework A-Frame se fait en ligne avec la ligne de code `<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>`.
+
 
 VII. Assets
 ------
