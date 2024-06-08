@@ -12,7 +12,7 @@ III. Informations sur le code
 ------
 Le code utilise la librairie javascript D3. La librairoe est accédée via la ligne de code ` <script src="https://d3js.org/d3.v7.min.js"></script>`. Le code a été en partie généré par chatgpt sur des prompts précis de ma part puis retravaillé pour le rendre opérationnel puis modifié si besoin pour ajouter des informations à la visualisation. Vous trouverez les échanges avec chatGPT dans le fichier `echanges_chat_gpt.pdf` avec ceux-ci classés par visualisation.
 
-III. Dataset
+IV. Dataset
 ------
 Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de _Traitement informatique des corpus textuels II_ dispensé par Aris Xanthos (SLI, Lettres, UNIL). 
 Vous trouverez le repo du projet au lien suivant : [Instagram_Comment_Scraping_Bot](https://github.com/MPR329/Instagram_Comment_Scraping_Bot). 
@@ -34,7 +34,7 @@ Afin de faciliter le travail lors de ce projet j'ai fusionné les fichiers _.jso
 
 J'ai aussi utilisé un fichier _.csv_, que j'avais également fait dans le cadre de ce même cours, qui recense différentes informations pour chaque match joué par Arsenal durant la saison (score, nom des buteurs, lien du post instagram, nombre de commentaires, etc). (fichier csv convertit en fichier json dans `matches_info.json`)
 
-IV. Contenu du projet 
+V. Contenu du projet 
 ------
 Le projet comporte 3 visualisations : 
 
@@ -54,16 +54,9 @@ Le projet comporte 3 visualisations :
  à celui des aux autres utilisateurs.
 * Cette visualisation, malgré sa simplicité, est celle qui, je trouve, a permis de mettre en évidence l'information la plus intéressante.
 
-V. GIFs de l'expérience 
+VI. GIFs de l'expérience 
 ------
 
-
-VIII. Sources
-------
-Les fichier .mp3 utilisés sont des enregistrements qui m'appartiennent à l'exception du bruit de boîte en plastique qui s'ouvre qui vient de youtube studio (Opening Plastic Storage Container à https://studio.youtube.com/channel/UC-qt0AvcROj2u2Qe7eQ1xXw/music)
-Les fichiers .glb utilisés sont des modèles 3d que j'ai créé avec l'application Luma et un Iphone 13
-Les modèles 3D proviennet du site https://sketchfab.com/. Les crédits de chaque modèle sont mentionnés au-dessus du téléchargement du modèle dans le fichier `index.html`.
-
-IV. Contexte de développement
+VII. Contexte de développement
 ------
 Ce projet a été développé dans le cadre du cours de _Réalité virtuelle et augmentée_ dispensé par Isaac Pante (SLI, Lettres, UNIL).
