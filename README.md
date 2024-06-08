@@ -11,16 +11,16 @@ Ce projet créé 3 visualisations à partir des données issues du scraping des 
 Les informations récoltées pour chaque post étaient les suivantes : 
 `
 {
-"USERNAME": "joelbeya1",                  // Le nom d'utilisateur de la personne qui a commenté
-"ID":"0",                                  // Juste un id unique généré par le bot pour chaque commentaire du post
-"DATE": "2022-02-19",                      // La date du commentaire
-"TIME": "17:16:48",                         // L'heure du commentaire
-"LIKES": "936 ",                            // Le nombre de likes sur ce commentaire
-"REPLIES": "4",                            // Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
-"COMMENTS": "Hale End Academy baby!!!",   // Le commentaire
-"TAGS": 0,                                // Le nombre de tags (p.ex @arsenalFC)
-"HASHTAGS": 0,                          // Le nombre de tags (p.ex #ARSENAL)
-"ACCOUNT_STATUS": true                 // Le statut du compte (vérifié ou non)
+"USERNAME": "joelbeya1", // Le nom d'utilisateur de la personne qui a commenté
+"ID":"0", // Juste un id unique généré par le bot pour chaque commentaire du post
+"DATE": "2022-02-19", // La date du commentaire
+"TIME": "17:16:48", // L'heure du commentaire
+"LIKES": "936 ", // Le nombre de likes sur ce commentaire
+"REPLIES": "4", // Le nombre de replies (malheureusement je n'ai pas fait l'effort d'également scraper les replies à chaque commentaire)
+"COMMENTS": "Hale End Academy baby!!!", // Le commentaire
+"TAGS": 0, // Le nombre de tags (p.ex @arsenalFC)
+"HASHTAGS": 0, // Le nombre de tags (p.ex #ARSENAL)
+"ACCOUNT_STATUS": true, // Le statut du compte (vérifié ou non)
 }
 `
 III. Informations sur le code
