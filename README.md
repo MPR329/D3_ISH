@@ -47,6 +47,12 @@ Le projet comporte 3 visualisations :
 * Ce fichier html permet de voir une visualisation des 100 mots les plus fréquents pour tous les posts durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match.
 * Il est assez aisé de voir que si le résultat du match est négatif les mots sont plus négatifs. La performance des joueurs affecte également la fréquence d'apparition de leur nom. Une performance particulièrement bonne ou mauvaise augmente cette fréquence.
 
+##### ${\color{lightgreen}[GRAPHE \space 3] \space :}$ _BARPLOT_top_commentors.html_
+* Ce simple barplot permet de voir quel utilisateur a commenté le plus de fois sur chaque commentaires. Lorsque la souris survole une bar, un tooltip affiche le nom de l'utilisateur ainsi que le nombre de commentaire sur le post concerné.
+* Un examen rapide du fichier json permet de voir que les commentaires des ces utilisateurs sont différents mais que chacun répéte souvent la même série de commentaires. Cela fait penser que ces utilisateurs sont des bots. En regardant ensuite le profil de ses utilisateurs on constate qu'il apparaissent comme des utilisateur "normaux".
+* Il serait intéressant de creuser plus cette piste et faire des visualisation spécifiquement sur les données de commentaires de ces utilisateurs. Notamment comment leur temps de latence pour poster un commentaire, après que le post soit mis en ligne par le club, comparé
+ aux autres utilisateurs.
+
 V. GIFs de l'expérience 
 ------
 
