@@ -17,7 +17,7 @@ III. Dataset
 Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de _Traitement informatique des corpus textuels II_ dispensé par Aris Xanthos (SLI, Lettres, UNIL). 
 Vous trouverez le repo du projet au lien suivant : [Instagram_Comment_Scraping_Bot](https://github.com/MPR329/Instagram_Comment_Scraping_Bot). 
 
-Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et donner diverses informations à ce sujet. J'ai scrapé les commentaires sous tous ce type de posts fait durant la saison 2021-2022 de Premier League. Quelques posts n'avaient pas été scrapé mais sinon quasiment tous les commentaires des autres posts avaient été scrapés. Les données suivantes ont été scrapé pour tous les commentaires : 
+Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et donner diverses informations à ce sujet. J'ai scrapé les commentaires sous tous ce type de posts fait durant la saison 2021-2022 de Premier League. Quelques posts n'avaient pas été scrapé mais sinon quasiment tous les commentaires des autres posts avaient été scrapés. Les données suivantes ont été scrapé pour les ***136'058**commentaires : 
 
 * **"USERNAME":**                           Le nom d'utilisateur de la personne qui a commenté
 * **"ID":**                                 Juste un id unique généré par le bot pour chaque commentaire du post
@@ -39,6 +39,9 @@ IV. Contenu du projet
 Le projet comporte 3 visualisations : 
 
 ##### ${\color{lightgreen}BUBBLE \space CHART \space :}$ _BUBBLE_CHART_top_words_during_season.html_
+Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur.Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram duquel il est issu. 
+
+On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi qu'il y a relativement peu de commentaires qui ont plus de 10 likes. 
 
 V. GIFs de l'expérience 
 ------
