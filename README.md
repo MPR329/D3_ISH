@@ -15,7 +15,7 @@ Le code utilise la librairie javascript D3. Il a été en partie généré par c
 III. Dataset
 ------
 Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de _Traitement informatique des corpus textuels II_ dispensé par Aris Xanthosante (SLI, Lettres, UNIL). 
-Vous trouverez le repo du projet au lien suivant : [Instagram_Comment_Scraping_Bot]([url](https://github.com/MPR329/Instagram_Comment_Scraping_Bot))
+Vous trouverez le repo du projet au lien suivant : [Instagram_Comment_Scraping_Bot](https://github.com/MPR329/Instagram_Comment_Scraping_Bot)
 
 IV. Contenu du projet 
 ------
