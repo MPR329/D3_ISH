@@ -6,7 +6,7 @@ Matthieu Perring
 
 II. Description du projet
 ------
-Ce projet propose 3 visualisations pour **136058** commentaires laissés sous les posts instagram d'Arsenal F.C après chaque match de la saison 2021-2022 de la Premier League. 
+Ce projet propose 3 visualisations pour les **136058** commentaires Instagram laissés sous les posts qu'Arsenal F.C a fait après chaque match de la saison 2021-2022 de la Premier League. 
 
 III. Informations sur le code
 ------
