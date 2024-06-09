@@ -47,7 +47,7 @@ Le projet comporte 3 visualisations :
 
 
 ##### ${\color{lightgreen}[GRAPHE \space 2] \space :}$ `WORD_CLOUD_top_100_words_per_posts_interactive.html`
-* Ce fichier html permet de voir une visualisation des 100 mots les plus fréquents pour tous les posts durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match.
+* Ce fichier html permet de voir une visualisation des 100 mots les plus fréquents pour chaque post durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match.
 * Il est assez aisé de voir que si le résultat du match est négatif les mots sont plus négatifs. La performance des joueurs affecte également la fréquence d'apparition de leur nom. Une performance particulièrement bonne ou mauvaise augmente cette fréquence.
 
 ![Untitled video - Made with Clipchamp (4)](https://github.com/MPR329/D3_ISH/assets/62051312/9c9b8d03-881b-4f2b-9ba7-fec0fff6a20b)
