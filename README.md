@@ -65,9 +65,6 @@ Le projet comporte 3 visualisations :
 
 
 
-VI. GIFs de l'expérience 
+VI. Contexte de développement
 ------
-
-VII. Contexte de développement
-------
-Ce projet a été développé dans le cadre du cours de _Réalité virtuelle et augmentée_ dispensé par Isaac Pante (SLI, Lettres, UNIL).
+Ce projet a été développé dans le cadre du cours de _Visualisation de donnée_ dispensé par Isaac Pante (SLI, Lettres, UNIL).
