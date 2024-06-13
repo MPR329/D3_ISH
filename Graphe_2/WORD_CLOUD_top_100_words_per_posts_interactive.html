@@ -53,17 +53,18 @@
        
         /* Styles pour le conteneur du nuage de mots */
         .word-cloud-container {
-            display: none;
-            position: absolute;
-            top: 57%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            z-index: 10;
+        display: none; /* Initially hide */
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        z-index: 10;
         }
+    
         /* Styles pour le titre du nuage de mots */
         .word-cloud-title {
             text-align: center;
@@ -183,34 +184,35 @@
                         .attr("class", "timeline-date")
                         .text(formattedDate)
                         .style("background-color", gradient(index))
-                        .on("mouseover", function() {
+                        .on("click", function() {
                             showWordCloud(postId);
                         })
-                        .on("mouseout", function() {
-                            hideWordCloud();
-                        });
                 });
 
                 // Fonction pour afficher le nuage de mots et les informations du match
                 function showWordCloud(postId) {
                     var display = d3.select("#word-cloud-display");
-                    display.style("display", "block");
+
+                    // Check if already visible
+                    if (display.style("display") === "none") {
+                        display.style("display", "block"); // Show word cloud container
+                    }
 
                     var wordCloudContainer = d3.select("#word-cloud-content");
-                    wordCloudContainer.html(""); // Effacer le contenu précédent
+                    wordCloudContainer.html(""); // Clear previous content
 
                     var wordCloudTitle = d3.select("#word-cloud-title");
                     
                     if (posts[postId].comments.length === 0) {
                         wordCloudTitle.text("COMMENTS NOT SCRAPED FOR THIS POST, SORRY");
                     } else {
-                        wordCloudTitle.text("Nuage de mots pour le post ID: " + postId); // Définir le titre
+                        wordCloudTitle.text("Nuage de mots pour le post ID: " + postId); // Set the title
                         createWordCloud(posts[postId].comments, postId, wordCloudContainer);
                     }
 
                     var matchInfo = posts[postId].matchInfo;
                     var matchInfoContainer = d3.select("#match-info");
-                    matchInfoContainer.html(""); // Effacer le contenu précédent
+                    matchInfoContainer.html(""); // Clear previous content
 
                     if (matchInfo && Object.keys(matchInfo).length > 0) {
                         var table = matchInfoContainer.append("table");
@@ -229,7 +231,7 @@
                         if (matchInfo["Buteurs"]) {
                             appendMatchInfoRow(tbody, "Buteurs", matchInfo["Buteurs"]);
                         }
-                       
+                    
                         if (matchInfo["Cartons jaune (ARS)"]) {
                             appendMatchInfoRow(tbody, "Cartons jaune (ARS)", matchInfo["Cartons jaune (ARS)"]);
                         }
@@ -246,11 +248,6 @@
                     var row = tbody.append("tr");
                     row.append("th").text(key);
                     row.append("td").text(value);
-                }
-
-                // Fonction pour masquer le nuage de mots
-                function hideWordCloud() {
-                    d3.select("#word-cloud-display").style("display", "none");
                 }
 
                 // Fonction pour extraire les mots des commentaires
@@ -300,14 +297,12 @@
                         .attr("width", width)
                         .attr("height", height);
 
-                    var color = d3.scaleOrdinal(d3.schemeCategory10);
-
                     svg.selectAll("text")
                         .data(wordsArray)
                         .enter().append("text")
                         .style("font-size", function(d) { return d.size + "px"; })
                         .style("font-family", "Impact")
-                        .style("fill", function(d, i) { return color(i); })
+                        .style("fill", "red")
                         .attr("text-anchor", "middle")
                         .attr("transform", function(d) {
                             return "translate(" + [Math.random() * width, Math.random() * height] + ")";

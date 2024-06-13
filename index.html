@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A brief description of your page">
+    <meta name="author" content="Your Name">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <style>
+        /* Color Scheme */
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --hover-color: #0056b3;
+            --button-text-color: #fff;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Header */
+        header {
+            background: var(--background-color);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px 0;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: var(--button-text-color);
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background-color);
+            padding: 10px 0;
+            text-align: center;
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Description Section Styles */
+        .description {
+            background-color: #f0f8ff; /* Light background color */
+            padding: 20px;
+            margin: 20px 20px;
+            border-left: 5px solid var(--primary-color); /* Colored border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 5px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .description h2 {
+            margin-top: 0; /* Remove top margin */
+            color: var(--primary-color); /* Primary color for heading */
+        }
+
+        .description p {
+            margin-bottom: 0; /* Remove bottom margin */
+        }
+
+        #container_second {
+            padding: 20px;
+            margin: 20px 20px;
+        }
+        p {
+            text-align: justify;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Projet de Visualisation de Données</h1>
+        </div>
+    </header>
+
+
+    <section id="about" class="description">
+        <h2>Au sujet du projet</h2>
+        <p>Ce projet propose 3 visualisations pour les 136058 commentaires Instagram laissés sous les posts qu'Arsenal F.C a fait après chaque match de la saison 2021-2022 de la Premier League.</p>
+        <p>Les données utilisées provienne d'un projet précédent réalisé dans le cadre du cours de Traitement informatique des corpus textuels II dispensé par Aris Xanthos (SLI, Lettres, UNIL). 
+            Vous trouverez le repo du projet au lien suivant : <a href="https://github.com/MPR329/Instagram_Comment_Scraping_Bot">Instagram_Comment_Scraping_Bot</a>. Arsenal F.C fait un post Instagram après chaque match pour annoncer le score et donner diverses informations 
+            à ce sujet. J'ai scrapé les commentaires sous tous ce type de posts fait durant la saison 2021-2022 de Premier League. Quelques posts n'avaient pas été scrapé mais sinon quasiment tous les 
+            commentaires des autres posts avaient été scrapés.</p>
+    </section>
+    
+    <main id="container_second" class="container">
+        <section id="bubble">
+            <h2>G1 - Bubble Chart</h2>
+            <p>Cette visualisation permet de visualiser les 5000 commentaires les plus likés sur les posts instagrams d'Arsenal durant la saison 2021-2022 selon le nombre de likes et le post sous lequel ils ont été laissés.</p>
+            <a href="Graphe_1/BUBBLE_CHART_top_words_during_season.html">
+                <button class="btn">Voir la visualisation G1</button>
+            </a>
+        </section>
+        <section id="word">
+            <h2>G2 - Word Cloud</h2>
+            <p>Ce graphe propose une visualisation des 100 mots les plus fréquents pour chaque post durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match.</p>
+            <a href="Graphe_2/WORD_CLOUD_top_100_words_per_posts_interactive.html">
+                <button class="btn">Voir la visualisation G2</button>
+            </a>
+
+        </section>
+        <section id="barplot">
+            <h2>G3 - Barplot</h2>
+            <p>Ce simple barplot permet de voir quel utilisateur a commenté le plus de fois sur chaque commentaires. Lorsque la souris survole une bar, un tooltip affiche le nom de l'utilisateur ainsi que le nombre de commentaire sur le post concerné.</p>
+            <a href="Graphe_3/BARPLOT_top_commentors.html">
+                <button class="btn">Voir la visualisation G3</button>
+            </a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+</body>
+</html>
