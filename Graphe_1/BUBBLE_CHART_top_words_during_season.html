@@ -8,7 +8,7 @@
     <style>
         .tooltip {
             position: absolute;
-            text-align: left; /* Align text to the left */
+            text-align: left;
             width: auto;
             padding: 8px;
             font: 12px sans-serif;
@@ -18,14 +18,36 @@
             pointer-events: none;
             visibility: hidden;
         }
+        .info_section {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #007BFF;
+            border-radius: 8px;
+            width: 300px;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: justify;
+        }
+        #info_title {
+            color: #007BFF
+        }
+        
     </style>
 </head>
 <body>
     <svg id="chart"></svg>
     <div class="tooltip" id="tooltip"></div>
+    <div class="info_section" id="info">
+        <h3 id="info_title">Au sujet de cette visualisation</h3>
+        <p>Cette visualisation met en évidence les 5000 commentaires les plus likés de tous les posts instagram. Plus la bulle est grande, plus le commentaire a été liké un grand nombre de fois. Les commentaires issus d'un même post ont la même couleur. Lorsqu'une bulle est survolée par la souris un tooltip apparaît et montre quelques informations sur le commentaire concerné : nom d'utilisateur, nombre de likes, commentaire, ID du post instagram.</p>
+        <p>On voit vite qu'un commentaire fait par le club lui-même est celui qui a le plus de likes. On voit aussi que, parmi les centaines de milleurs de commentaires, relativement peu ont plus de 10 likes.</p>
+        <p>Passez votre souris  au-dessus une bulle pour voir les détails</p>
+    </div>
 
     <script>
-
         // Disclaimer : Ce fichier a été écrit avec l'aide de chatGPT
 
         // [A] J'ai malheureusement vu après coup les consignes selon quoi il fallait encapsuler les bouts de code qui avaient été générés par chatgpt.
@@ -34,18 +56,16 @@
         // [C] Le 20% restant du travail est la correction des erreures qui subsistent, des petits ajouts pour changer légèrement la logique du script
         //     et finalement relecture du code pour éventuellement ajouter des commentaires si cela était nécessaire.
 
-        // Set up the chart dimensions
-        const width = 1680; // 14 inches at 120 DPI
-        const height = 1050; // 14 inches at 120 DPI
+        const width = 1680;
+        const height = 1050;
         const padding = 50;
 
         d3.json("../combined_data.json").then(function(data){
-            // Sort the data by population in descending order and get the top 20 countries
+            // Sort the data by likes in descending order and get the top 5000 posts
             data.forEach(function(d) {
                 d.LIKES = parseInt(String(d.LIKES).trim().replace(/\D/g,''));
             });
-            const sortedData = data.sort((a, b) => b.LIKES - a.LIKES).slice(0,5000);
-            console.log(sortedData);
+            const sortedData = data.sort((a, b) => b.LIKES - a.LIKES).slice(0, 5000);
 
             // Extract unique file_identifiers
             const fileIdentifiers = [...new Set(sortedData.map(d => d.file_identifier))];
@@ -85,32 +105,10 @@
                 .attr("r", d => d.r)
                 .attr("fill", d => colorScale(d.data.file_identifier));
 
-            // Add the country name and population text to the bubbles
-            bubbles.append("text")
-                .attr("dy", "-0.4em")
-                .style("text-anchor", "middle")
-                .append("tspan")
-                .attr("class", "COMMENT")
-                .style("visibility", "hidden")
-                .text(d => d.data.COMMENTS)
-                .append("tspan")
-                .attr("class", "LIKES")
-                .attr("x", 0)
-                .attr("dy", "1.2em")
-                .text(d => d.data.LIKES.toLocaleString())
-                .append("tspan")
-                .attr("class", "LIKES")
-                .attr("x", 0)
-                .attr("dy", "1.2em")
-                .text(d => d.data.USERNAME.toLocaleString());
-
-            // Set the text color to black
-            d3.selectAll("text").style("fill", "black");
-
-            // Create tooltip element
+            // Add the tooltip element
             const tooltip = d3.select("#tooltip");
 
-            // Add event listeners to show/hide tooltip on mouseover/mouseout
+            // Event listeners to show/hide tooltip on mouseover/mouseout
             bubbles.on("mouseover", function(event, d) {
                 tooltip.style("visibility", "visible")
                     .html(`<b>Username:</b> ${d.data.USERNAME}<br><b>Likes</b>: ${d.data.LIKES.toLocaleString()}<br><b>Comments:</b> ${d.data.COMMENTS}<br><b>Post:</b> ${d.data.file_identifier}`)

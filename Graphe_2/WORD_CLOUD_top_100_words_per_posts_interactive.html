@@ -97,6 +97,25 @@
         .match-info th {
             background-color: #f2f2f2;
         }
+        .info {
+            position: absolute;
+            top: 40%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 10px;
+            border: 1px solid red;
+            border-radius: 8px;
+            width: 300px;
+            font-size: 14px;
+            line-height: 1.4;
+            z-index: 1000; /* Ensure info section is above the SVG */
+            text-align: justify;
+
+        }
+        #info_title {
+            color : red
+        }
     </style>
 </head>
 <body>
@@ -109,6 +128,12 @@
         <div class="word-cloud-title" id="word-cloud-title"></div>
         <div id="match-info" class="match-info"></div>
         <div class="word-cloud-content" id="word-cloud-content"></div>
+    </div>
+    <div class="info" id="info">
+        <h3 id="info_title">Au sujet de cette visualisation</h3>
+        <p>Cette visualisation permet de voir une visualisation des 100 mots les plus fréquents pour chaque post durant la saison. En addition à la visualisation un tableau est affiché avec diverses information concernant le match</p>
+        <p>Il est assez aisé de voir que si le résultat du match est négatif les mots sont plus négatifs. La performance des joueurs affecte également la fréquence d'apparition de leur nom. Une performance particulièrement bonne ou mauvaise augmente cette fréquence.</p>
+        <p>Cliquez sur une des dates du timeline en rouge pour voir la visualisation du post Intagram pour le match ayant eu lieu ce jour là.</p>
     </div>
 
     <script>

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Commenteurs par Nombre de Commentaires par Post</title>
+    <title>Top Commentateurs par Nombre de Commentaires par Post</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            position: relative; /* Ensure body is positioned relatively for absolute positioning */
         }
 
         .bar {
@@ -41,12 +42,31 @@
             font-weight: bold;
             text-anchor: middle;
         }
+
+        .info {
+            position: absolute;
+            top: 32%;
+            left: 47%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 10px;
+            border: 1px solid #007BFF;
+            border-radius: 8px;
+            width: 300px;
+            font-size: 14px;
+            line-height: 1.4;
+            z-index: 1000; /* Ensure info section is above the SVG */
+            text-align: justify;
+        }
+        #info_title {
+            color: #007BFF
+        }
     </style>
 </head>
 <body>
+    
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
-
         // Disclaimer : Ce fichier a été écrit avec l'aide de chatGPT
 
         // [A] J'ai malheureusement vu après coup les consignes selon quoi il fallait encapsuler les bouts de code qui avaient été générés par chatgpt.
@@ -82,8 +102,8 @@
             const users = Object.values(mostCommentedUsers);
 
             // Créer les dimensions du graphique en fonction de la taille de l'écran
-            const screenWidth = window.innerWidth;
-            const screenHeight = window.innerHeight;
+            const screenWidth = window.innerWidth*0.92;
+            const screenHeight = window.innerHeight*0.92;
             const margin = { top: 50, right: 50, bottom: 80, left: 80 };
             const width = screenWidth - margin.left - margin.right;
             const height = screenHeight - margin.top - margin.bottom;
@@ -149,30 +169,37 @@
                 .text("Top Commentateurs par Nombre de Commentaires par Post")
                 .style("font-size", "24px")
                 .style("font-weight", "bold")
-            .style("font-family", "Arial")
-            .attr("text-anchor", "middle");
+                .style("font-family", "Arial")
+                .attr("text-anchor", "middle");
 
-        // Fonction pour gérer le survol de la souris
-        function handleMouseOver(event, d) {
-            const user = mostCommentedUsers[d].user;
-            const count = mostCommentedUsers[d].count;
-            d3.select(this).style("fill", "orange");
-            tooltip.style("opacity", 1)
-                .html("Utilisateur : " + user + "<br/>Nombre de Commentaires : " + count)
-                .style("left", (event.pageX + 10) + "px")
-                .style("top", (event.pageY - 15) + "px");
-        }
+            // Fonction pour gérer le survol de la souris
+            function handleMouseOver(event, d) {
+                const user = mostCommentedUsers[d].user;
+                const count = mostCommentedUsers[d].count;
+                d3.select(this).style("fill", "orange");
+                tooltip.style("opacity", 1)
+                    .html("Utilisateur : " + user + "<br/>Nombre de Commentaires : " + count)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 15) + "px");
+            }
 
-        function handleMouseOut(event, d) {
-            d3.select(this).style("fill", "steelblue");
-            tooltip.style("opacity", 0);
-        }
+            function handleMouseOut(event, d) {
+                d3.select(this).style("fill", "steelblue");
+                tooltip.style("opacity", 0);
+            }
 
-        // Ajouter une info-bulle (tooltip)
-        const tooltip = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-    });
-</script>
+            // Ajouter une info-bulle (tooltip)
+            const tooltip = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+        });
+    </script>
+
+    <div class="info" id="info">
+        <h3 id="info_title">Au sujet de cette visualisation</h3>
+        <p>Ce graphique à barres montre les utilisateurs ayant le plus grand nombre de commentaires par post. Chaque barre représente un post, avec la hauteur indiquant le nombre de commentaires.</p>
+        <p>Un examen rapide du fichier json permet de voir que les commentaires des ces utilisateurs sont différents mais que chacun répète souvent la même série de commentaires. Cela fait penser que ces utilisateurs sont des bots. En regardant ensuite le profil de ses utilisateurs on constate qu'il apparaissent comme des utilisateur "normaux"</p>
+        <p>Passez la souris sur une barre pour voir les détails.</p>
+    </div>
 </body>
 </html>
